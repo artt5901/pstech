@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Login | student</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Sarabun:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sarabun">
+	<link rel="icon" href="icon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+
+	<style>
+		#ABC {
+			background-color: #242526;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+		}
+
+		body {
+			background: grey;
+			margin: 0;
+		}
+
+		body,
+		h1,
+		div,
+		h3 {
+			font-family: 'Sarabun';
+		}
+	</style>
+
+</head>
+
+<body>
+	<section class="ftco-section" id="ABC">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h1 class="heading-section" style="font-size: 30px;color: #fff;"><b>ระบบทะเบียนและวัดผลนักศึกษา</b></h1>
+					<!-- <h3 class="heading-section" style="font-size: 20px;"> วิทยาลัยเทคโนโลยีป่าสักธารา</h3> -->
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-12 col-lg-10">
+					<div class="wrap d-md-flex">
+						<div class="img" style="background-image: url(images/logo.png); width: 500px; height: 500px;">
+						</div>
+
+						<div class="login-wrap p-4 p-md-5" style="background-color: #feb8c6;">
+							<div class="d-flex">
+								<div class="w-100">
+									<u>
+										<h3 class="mb-4">เข้าสู่ระบบ</h3>
+									</u>
+								</div>
+
+								<div class="w-100">
+									<div class="form-group">
+										<a href="frm_adminlogin_page.html"
+											class="form-control btn btn-success rounded submit px-3" role="button"
+											aria-pressed="true" style="background-color: rgb(0, 70, 128);color: white;">
+											สำหรับเจ้าหน้าที่ </a>
+									</div>
+								</div>
+
+							</div>
+							<form action="login.php" class="signin-form" method="POST" name="form1">
+								<div class="form-group mb-3">
+									<label class="label" for="name">เลขประจำตัวนักศึกษา</label>
+									<input type="text" class="form-control" placeholder="เลขประจำตัวนักศึกษา"
+										name="username" id="username">
+								</div>
+								<div class="form-group mb-3">
+									<label class="label" for="password">รหัสผ่าน</label>
+									<input type="password" class="form-control" placeholder="รหัสผ่าน" name="password"
+										id="password">
+								</div>
+								<div class="form-group">
+									<button type="submit" class="form-control btn btn-success rounded submit px-3"
+										style="background-color: rgb(40, 179, 6);color: white;">
+										เข้าสู่ระบบ </button>
+								</div>
+
+							</form>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+
+</body>
+
+</html>
