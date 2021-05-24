@@ -1,6 +1,8 @@
 <?php
+session_start();
+if(isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_SESSION["userlevel"])  == '2'){
 	include "connect.php";
-	include "head_menu_admin.php";
+	include "include/head_menu_admin.php";
 	
 	$sql = "SELECT * FROM position";
 	$result = mysqli_query($conn,$sql)
@@ -25,6 +27,7 @@
     <h1>แสดงข้อมูลตำแหน่ง</h1>    
   </div>
 <div class="card text"  style="max-width: 1100px;" >
+<div class="col"><?php echo "<a href=\"print_position.php?\""; ?><button class="col-2 btn btn-success btn-sm float-center" href="print_teacher.php" >ออกรายงานข้อมูลตำแหน่ง</button><?php echo "</a>"; ?></div>
   <div class="row no-gutters">
     <div class="col-md-12">
 <table class="table table-hover">
@@ -59,3 +62,9 @@
   <div class="card-footer text-muted">
     Phasaktara Technological Callege
   </div>
+  <?php
+} else {
+    echo "<script> alert('Please Login');window.location = 'index.php';</script>";
+    exit();
+}
+?>

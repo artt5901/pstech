@@ -1,5 +1,5 @@
 <?php
-	include "head_menu_admin.php";
+	include "include/head_menu_admin.php";
 	include "connect.php";
 	
 		$sql = "SELECT d1.t_username, d1.t_name, d1.t_tel , d2.b_name , d3.po_name

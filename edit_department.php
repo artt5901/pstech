@@ -1,5 +1,7 @@
 <?php
-	include "head_menu_admin.php";
+session_start();
+if(isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_SESSION["userlevel"]) == '2'){
+	include "include/head_menu_admin.php";
 	include "connect.php";
 	
 	$d_id = $_GET['d_id'];
@@ -42,8 +44,8 @@
                     <p>คุณต้องการบันทึกการแก้ไขข้อมูลหรือไม่</p>
                 </div>
                 <div class="modal-footer">
-                    <a class="btn btn-danger text-white" data-dismiss="modal">Close</a>
-                    <div class="col"><button class="btn btn-success float-right">Yes</button></div>
+                    <a class="btn btn-danger text-white" data-dismiss="modal">ปิด</a>
+                    <div class="col"><button class="btn btn-success float-right">ตกลง</button></div>
                 </div>
             </div>
         </div>
@@ -66,8 +68,8 @@
         <div class="form-group">
           <div class="container">
             <div class="row">
-              <div class="col"><button class="col-6 btn btn-success btn-sm float-center" data-toggle="modal" data-target="#myModal">Edit</button></div>
-              <div class="col"><button class="col-6 btn btn-danger btn-sm float-left" input type="button" onclick=window.history.back() >back</button></div>
+              <div class="col"><button class="col-6 btn btn-success btn-sm float-center" data-toggle="modal" data-target="#myModal">บันทึก</button></div>
+              <div class="col"><button class="col-6 btn btn-danger btn-sm float-left" input type="button" onclick=window.history.back() >ย้อนกลับ</button></div>
             </div>
           </div>
         </div>
@@ -82,3 +84,9 @@
   </div>
 </div>
 </div>
+<?php
+} else {
+    echo "<script> alert('Please Login');window.location = 'index.php';</script>";
+    exit();
+}
+?>

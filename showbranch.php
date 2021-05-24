@@ -1,6 +1,8 @@
 <?php
+session_start();
+if(isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_SESSION["userlevel"])  == '2'){
 	include "connect.php";
-	include "head_menu_admin.php";
+	include "include/head_menu_admin.php";
 	
 	$sql = "SELECT d1.b_id , d1.b_name , d2.d_name
 			FROM branch AS d1
@@ -9,6 +11,7 @@
 	$result = mysqli_query($conn,$sql)
 	 or die("3.ไม่สามารถประมวลผลคำสั่งได้").mysqli_error();
 ?>
+
 <title>Branch Information To Phasaktara</title>
 <div class="card text-center">
   <div class="card-header">
@@ -35,6 +38,7 @@
     <div class="col-md-12">
 <table class="table table-hover">
   <thead>
+  <div class="col"><?php echo "<a href=\"print_branch.php?\">"; ?><button class="col-3 btn btn-success btn-sm float-center" >พิมพ์รายงานข้อมูลสาขา</button><?php echo "</a>"; ?></div>
     <tr class="bg-secondary text-white">
       <th scope="col">#</th>
       <th scope="col">สาขา</th>
@@ -67,3 +71,9 @@
   <div class="card-footer text-muted">
     Phasaktara Technological Callege
   </div>
+  <?php
+} else {
+    echo "<script> alert('Please Login');window.location = 'index.php';</script>";
+    exit();
+}
+?>

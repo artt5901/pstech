@@ -24,7 +24,7 @@
 	 			echo"alert('กรุณาป้อนชื่อสาขา);";
 	 			echo"window.history.back();";
 	 			echo"</script>";		
-		
+				}
 		else {
 			echo"<script language=\"javascript\">";
 	 	echo"alert('ข้อมูลซ้ำ กรุณาป้อนข้อมูลใหม่');";
@@ -34,5 +34,5 @@
 	}
 				}
 		}
-	}
+	
 ?>

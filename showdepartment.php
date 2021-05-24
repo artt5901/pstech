@@ -1,6 +1,8 @@
 <?php
+session_start();
+if(isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_SESSION["userlevel"])  == '2'){
 	include "connect.php";
-	include "head_menu_admin.php";
+	include "include/head_menu_admin.php";
 	
 	$sql = "SELECT * FROM department";
 	$result = mysqli_query($conn,$sql)
@@ -28,6 +30,7 @@
   <div class="row no-gutters">
     <div class="col-md-12">
 <table class="table table-hover">
+<thead><div class="col"><?php echo "<a href=\"print_department.php?\">"; ?><button class="col-3 btn btn-success btn-sm float-center" >พิมพ์รายงานข้อมูลแผนก</button><?php echo "</a>"; ?></div>
   <thead>
     <tr class="bg-secondary text-white">
       <th scope="col">#</th>
@@ -59,3 +62,9 @@
   <div class="card-footer text-muted">
     Phasaktara Technological Callege
   </div>
+  <?php
+} else {
+    echo "<script> alert('Please Login');window.location = 'index.php';</script>";
+    exit();
+}
+?>

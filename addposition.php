@@ -11,7 +11,7 @@
 			$sql = "INSERT INTO position (po_name) VALUES ('$po_name')";
 			mysqli_query($conn,$sql)
 	 		or die("3. ไม่สามารถประมวลผลคำสั่งได้") . mysql_error();
-	 		mysqli_close();
+	 		mysqli_close($conn);
 	 		echo"<script language=\"javascript\">";
 	 		echo"alert('บันทึกข้อมูลเรียบร้อยแล้ว');";
 	 		echo"window.location = 'showposition.php';";
@@ -32,14 +32,3 @@
 	}
 	
 ?>
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-</head>
-
-<body>
-</body>
-</html>

@@ -1,5 +1,5 @@
 <?php
-	include "head_menu_admin.php";
+	include "include/head_menu_admin.php";
 	include "connect.php";
 ?>
 <title>Add Teacher Information To Phasaktara</title>

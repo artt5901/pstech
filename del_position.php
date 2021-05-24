@@ -1,5 +1,7 @@
 <?php
-	include "head_menu_admin.php";
+session_start();
+if(isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_SESSION["userlevel"]) == '2'){
+	include "include/head_menu_admin.php";
 	include "connect.php";
 	$po_id = $_GET['po_id'];
 	
@@ -27,7 +29,7 @@
   </div>
   <hr/>
   <div class="row justify-content-center align-items-center h-100">
-    <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
+    <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6">
       <form id="form1" name="form1" method="post" action="delposition.php">
       <div class="modal fade" id="myModal">
         <div class="modal-dialog">
@@ -42,8 +44,8 @@
                     <p>คุณต้องการลบข้อมูลหรือไม่</p>
                 </div>
                 <div class="modal-footer">
-                    <a class="btn btn-danger text-white" data-dismiss="modal">Close</a>
-                    <div class="col"><button class="btn btn-success float-right">Yes</button></div>
+                    <a class="btn btn-danger text-white" data-dismiss="modal">ปิด</a>
+                    <div class="col"><button class="btn btn-success float-right">ตกลง</button></div>
                 </div>
             </div>
         </div>
@@ -61,8 +63,8 @@
         <div class="form-group">
           <div class="container">
             <div class="row">
-              <div class="col"><button class="col-6 btn btn-danger btn-sm float-center" data-toggle="modal" data-target="#myModal">Delete</button></div>
-              <div class="col"><button class="col-6 btn btn-secondary btn-sm float-left" input type="button" onclick=window.history.back() >back</button></div>
+              <div class="col"><button class="col-6 btn btn-danger btn-sm float-center" data-toggle="modal" data-target="#myModal">ลบ</button></div>
+              <div class="col"><button class="col-6 btn btn-secondary btn-sm float-left" input type="button" onclick=window.history.back() >ย้อนกลับ</button></div>
               
             </div>
           </div>
@@ -77,3 +79,9 @@
   </div>
 </div>
 </div>
+<?php
+} else {
+    echo "<script> alert('Please Login');window.location = 'index.html';</script>";
+    exit();
+}
+?>
