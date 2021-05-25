@@ -41,8 +41,8 @@ if(isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_S
                 </select>
               </div>
         <div class="form-group">
-          <label for="inputclass">รหัสหมู่เรียน</label>
-          <input name="class_name" input type="text" class="form-control" id="class_name" placeholder="กรอกหมู่เรียน" />
+          <label for="inputclass">รหัสหมู่เรียน</label><span style="color:red; font-size : 12px;">*ระบุหมู่เรียนเป็นภาษาไทย</span>
+          <input name="class_name" input type="text" class="form-control" id="class_name" placeholder="กรอกหมู่เรียน" onkeypress="isInputThaiNum(event)"/>
           <label class="text-danger" for="inputclass">*หมายเหตุ*</label>
           <label class="text-danger" for="inputclass">รหัสหมู่เรียนประกอบไปด้วย ปีที่เข้าศึกษา + รหัสแผนก + รหัสสาขา</label>
           </div>

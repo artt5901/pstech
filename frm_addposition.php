@@ -27,7 +27,7 @@ if(isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_S
         <div class="form-group">
         </div>
         <div class="form-group">
-          <input name="po_name" input type="text" class="form-control" id="po_name" placeholder="กรุณาใส่ชื่อตำแหน่ง"  pattern="^[ก-๏\s]+$" title="กรุณากรอก ภาษาไทย"/>
+          <input name="po_name" input type="text" class="form-control" id="po_name" placeholder="กรุณาใส่ชื่อตำแหน่ง (ภาษาไทย)" onkeypress="isInputThaiNum(event)"/>
         </div>
         <div class="form-group text-center">
 

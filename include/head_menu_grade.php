@@ -135,6 +135,62 @@
     });
   </script>
 
+<script>
+  function isInputNumber(evt) {
+    var ch = String.fromCharCode(evt.which);
+    if (!(/[0-9]/.test(ch))) {
+      evt.preventDefault();
+    }
+  }
+  function isInputNumber1(evt) {
+    var ch = String.fromCharCode(evt.which);
+    if (!(/[0-9 && / ]/.test(ch))) {
+      evt.preventDefault();
+    }
+  }
+
+  function isInputChar(evt) {
+    var ch = String.fromCharCode(evt.which);
+    if (!(/[a-z && A-Z && ก-ฮ && ะ && า &&  ิ &&  ี && ึ && ื && ุ && ู && เ && แ && โ && ์ && ่ && ้ && ั && ๊ && ็ && ใ && ๋ && ๆ && ไ && ำ]/.test(ch))) {
+      evt.preventDefault();
+    }
+  }
+
+  function isInputUsername(evt) {
+    var ch = String.fromCharCode(evt.which);
+    if (!(/[a-z && A-Z && 0-9]/.test(ch))) {
+      evt.preventDefault();
+    }
+  }
+
+  function isInputPassword(evt) {
+    var ch = String.fromCharCode(evt.which);
+    if (!(/[a-z && A-Z && 0-9]/.test(ch))) {
+      evt.preventDefault();
+    }
+  }
+  function isInputThai(evt) {
+    var ch = String.fromCharCode(evt.which);
+    if (!(/[ก-ฮ && ะ && า &&  ิ &&  ี && ึ && ื && ุ && ู && เ && แ && โ && ์ && ่ && ้ && ั && ๊ && ็ && ใ && ๋ && ๆ && ไ && ำ && .]/.test(ch))) {
+      evt.preventDefault();
+    }
+  }
+
+  function isInputEng(evt) {
+    var ch = String.fromCharCode(evt.which);
+    if (!(/[[a-z && A-Z]/.test(ch))) {
+      evt.preventDefault();
+    }
+  }
+
+  function isInputThaiNum(evt) {
+    var ch = String.fromCharCode(evt.which);
+    if (!(/[ก-ฮ && ะ && า &&  ิ &&  ี && ึ && ื && ุ && ู && เ && แ && โ && ์ && ่ && ้ && ั && ๊ && ็ && ใ && ๋ && ๆ && ไ && ำ && . && 0-9]/.test(ch))) {
+      evt.preventDefault();
+    }
+  }
+</script>
+
 </body>
 
 </html>

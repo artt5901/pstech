@@ -5,9 +5,8 @@ if (isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"])) {
   include "include/head_menu_student.php";
 $valid_username = $_SESSION["valid_uname"];
 $sql = "SELECT *
-				FROM classroom as classroom 
-				inner join class as class on (classroom.class_id = class.class_id)
-				inner join student as student on (student.class_id = class.class_id)
+				FROM student
+				inner join class on (student.class_id = class.class_id)
 							WHERE student.s_username = '$valid_username'";
 $result = mysqli_query($conn, $sql)
   or die("3.ไม่สามารถประมวลผลคำสั่งได้") . mysqli_error();

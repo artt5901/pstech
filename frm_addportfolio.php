@@ -49,7 +49,7 @@ include "connect.php";
             <div class="form-row">
               <div class="form-group col-md-3">
                 <label for="inputTel">ปีการศึกษา</label>
-                <input type="text" class="form-control" id="p_year" placeholder="2564" input name="p_year" pattern="^[0-9]+$" title="กรุณากรอกตัวเลขเท่านั้น" required>
+                <input type="text" class="form-control" id="p_year" placeholder="เช่น 2564" input name="p_year" onkeypress="isInputNumber(event)" required>
               </div>
               <div class="form-group col-md-6">
                 <label for="inputBranch">ผู้บันทึก</label>
@@ -69,7 +69,7 @@ include "connect.php";
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputTel">รหัสนักศึกษา</label>
-                <input type="text" class="form-control" id="s_username" input name="s_username" required> 
+                <input type="text" class="form-control" id="s_username" input name="s_username" onkeypress="isInputNumber(event)" required> 
               </div>
             </div>
             

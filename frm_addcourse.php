@@ -31,14 +31,14 @@ if(isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_S
       <input type="text" class="form-control" id="c_num" placeholder="กรุณาป้อนรหัสรายวิชา" input name="c_num">
     </div>
     <div class="form-group col-md-6">
-      <label for="inputname">ชื่อวิชา</label>
-      <input type="text" class="form-control" id="c_name" placeholder="กรุณาป้อนชื่อวิชา" input name="c_name">
+      <label for="inputname">ชื่อวิชา</label><span style="color:red; font-size : 12px;">*ภาษาไทย</span>
+      <input type="text" class="form-control" id="c_name" placeholder="กรุณาป้อนชื่อวิชา" input name="c_name" onkeypress="isInputThaiNum(event)">
     </div>
   </div>
   <div class="form-row">
   <div class="form-group col-md-4">
         <label for="inputcredit">หน่วยกิต</label>
-          <input name="c_credit" input type="text" class="form-control" id="c_credit" placeholder="กรุณาใส่จำนวนหน่วยกิต" />
+          <input name="c_credit" input type="text" class="form-control" id="c_credit" placeholder="กรุณาใส่จำนวนหน่วยกิต" onkeypress="isInputNumber(event)" maxlength="1"/>
         </div>
    <div class="form-group col-md-8">
                 <label for="inputBranch">หมวดวิชา</label>

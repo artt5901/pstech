@@ -38,7 +38,6 @@ h1 {
 			<th>ข่าวสาร</th>
 			<th>วันที่ประชาสัมพันธ์</th>
 			<th>ผู้ประกาศ</th>
-			<th>ลิงค์ชมภาพ</th>
         </tr>
        
 ';
@@ -50,7 +49,6 @@ $html .= ' <tr>
 <td align="left">'.$row['n_name'].'</td>
 <td align="left">'.$row['n_date'].'</td>
 <td align="left">'.$row['t_name'].'</td>
-<td align="left">'.$row['n_link'].'</td>
 </tr>
 ';
 }
@@ -67,7 +65,9 @@ $html .= '</table>';
 $mpdf = MpdfHelper::getInstance(
     ['mode' => 'utf-8', 'format' => 'A4-L'] //  ขนาด
 );
-$mpdf = MpdfHelper::getInstance();
+$mpdf = MpdfHelper::getInstance(
+    ['orientation' => 'L'] //  ขนาด
+);
 $mpdf->WriteHTML($html);
 $mpdf->Output();
 ?>

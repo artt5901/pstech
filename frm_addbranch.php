@@ -31,8 +31,8 @@ if(isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_S
         <div class="form-group">
         </div>
         <div class="form-group">
-          <label for="exampleFormControlInput1" >ชื่อสาขา</label>
-          <input name="b_name" input type="text" class="form-control" id="b_name" placeholder="กรุณาใส่ชื่อสาขา" />
+          <label for="exampleFormControlInput1" >ชื่อสาขา</label><span style="color:red; font-size : 12px;">*ภาษาไทย</span>
+          <input name="b_name" input type="text" class="form-control" id="b_name" placeholder="กรุณาใส่ชื่อสาขา" onkeypress="isInputThaiNum(event)"/>
         </div>
           <div class="form-group">
     		<label for="exampleFormControlSelect1">เลือกแผนก</label>

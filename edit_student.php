@@ -69,20 +69,20 @@ $rs = mysqli_fetch_array($result)
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputUsername">รหัสนักศึกษา/ชื่อผู้ใช้</label>
-                <input type="text" class="form-control" id="s_username" disabled="disabled" input name="s_username" value="<?php echo "$rs[s_username]"; ?>" required>
+                <input type="text" class="form-control" id="s_username" disabled="disabled" input name="s_username" value="<?php echo "$rs[s_username]"; ?>" onkeypress="isInputNumber(event)" required>
               </div>
               <div class="form-group col-md-6">
-                <label for="inputPassword4">รหัสผ่าน</label>
-                <input type="text" class="form-control" id="s_password" placeholder="Password" input name="s_password" value="<?php echo "$rs[s_password]"; ?>" pattern="^[a-zA-Z0-9]+$" title="กรุณากรอกตัวเลข หรือ ภาษาอังกฤษเท่านั้น" required>
+                <label for="inputPassword4">รหัสผ่าน</label><span style="color:red">*กรอกได้แค่ตัวอักษร A-Z,a-z และ 0-9 เท่านั้น</span>
+                <input type="text" class="form-control" id="s_password" placeholder="Password" input name="s_password" value="<?php echo "$rs[s_password]"; ?>" onkeypress="isInputPassword(event)" required>
               </div>
             </div>
             <div class="form-group ">
               <label for="inputname">รหัสบัตรประชาชนประจำตัว</label>
-              <input type="text" class="form-control" id="s_idcard" placeholder="รหัสบัตรประชาชนประจำตัว" input name="s_idcard" value="<?php echo "$rs[s_idcard]"; ?>" pattern="^[0-9]+$" title="กรุณากรอกตัวเลขเท่านั้น" minlength="13" maxlength="13" required>
+              <input type="text" class="form-control" id="s_idcard" placeholder="รหัสบัตรประชาชนประจำตัว" input name="s_idcard" value="<?php echo "$rs[s_idcard]"; ?>" onkeypress="isInputNumber(event)" minlength="13" maxlength="13" required>
             </div>
             <div class="form-group ">
               <label for="inputname">ชื่อ-สกุล</label>
-              <input type="text" class="form-control" id="s_name" placeholder="Full Name" input name="s_name" value="<?php echo "$rs[s_name]"; ?>" pattern="^[ก-๏\s]+$" title="กรุณากรอกชื่อ นามสกุล ภาษาไทย" required>
+              <input type="text" class="form-control" id="s_name" placeholder="Full Name" input name="s_name" value="<?php echo "$rs[s_name]"; ?>" onkeypress="isInputThai(event)" required>
             </div>
             <div class="form-group">
               <label for="inputAddress">ที่อยู่</label>
@@ -91,7 +91,7 @@ $rs = mysqli_fetch_array($result)
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputTel">เบอร์ติดต่อ</label>
-                <input type="text" class="form-control" id="s_tel" placeholder="0622915580" input name="s_tel" value="<?php echo "$rs[s_tel]"; ?>" pattern="^[0-9]+$" title="กรุณากรอกตัวเลขเท่านั้น" maxlength="10" minlength="10" required>
+                <input type="text" class="form-control" id="s_tel" placeholder="" input name="s_tel" value="<?php echo "$rs[s_tel]"; ?>" onkeypress="isInputNumber(event)"  maxlength="10" minlength="10" required>
               </div>
               <div class="form-group col-md-6">
                 <label for="inputEmail">E-Mail</label>
@@ -101,11 +101,11 @@ $rs = mysqli_fetch_array($result)
             <div class="form-row">
               <div class="form-group col-md-3">
                 <label for="inputTel">ปีที่เข้าศึกษา</label>
-                <input type="text" class="form-control" id="s_year" placeholder="2563" input name="s_year" value="<?php echo "$rs[s_year]"; ?>" pattern="^[0-9]+$" title="กรุณากรอกตัวเลขเท่านั้น" required>
+                <input type="text" class="form-control" id="s_year" placeholder="" input name="s_year" value="<?php echo "$rs[s_year]"; ?>" onkeypress="isInputNumber(event)" required>
               </div>
               <div class="form-group col-md-5">
                 <label for="example-date-input" class="col-9 col-form-label">วัน/เดือน/ปีเกิด</label>
-                <input class="form-control" type="date" id="s_hbd" input name="s_hbd" value="<?php echo "$rs[s_hbd]"; ?>" required>
+                <input class="form-control" type="date" id="s_hbd" input name="s_hbd" value="<?php echo "$rs[s_hbd]"; ?>"  required>
               </div>
             </div>
             <div class="form-group">
@@ -173,11 +173,11 @@ $rs = mysqli_fetch_array($result)
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label for="inputTel">มีพี่น้องทั้งหมดกี่คน</label>
-                <input type="text" class="form-control" id="s_brethren" placeholder="-" input name="s_brethren" value="<?php echo "$rs[s_brethren]"; ?>" required>
+                <input type="text" class="form-control" id="s_brethren" placeholder="-" input name="s_brethren" value="<?php echo "$rs[s_brethren]"; ?>" onkeypress="isInputNumber1(event)" required>
               </div>
               <div class="form-group col-md-5">
                 <label for="inputTel">เป็นบุตรคนที่</label>
-                <input type="text" class="form-control" id="s_child" placeholder="-" input name="s_child" value="<?php echo "$rs[s_child]"; ?>" required>
+                <input type="text" class="form-control" id="s_child" placeholder="-" input name="s_child" value="<?php echo "$rs[s_child]"; ?>" onkeypress="isInputNumber1(event)" required>
               </div>
             </div>
 
@@ -190,30 +190,30 @@ $rs = mysqli_fetch_array($result)
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputTel">รหัสประจำตัวประชาชน(บิดา)</label>
-                <input type="text" class="form-control" id="f_id" value="<?php echo "$rs[f_id]"; ?>" input name="f_id" pattern="^[0-9]+$" title="กรุณากรอกตัวเลขเท่านั้น" minlength="13" maxlength="13" required>
+                <input type="text" class="form-control" id="f_id" value="<?php echo "$rs[f_id]"; ?>" input name="f_id" onkeypress="isInputNumber(event)"  minlength="13" maxlength="13" required>
               </div>
               <div class="form-group col-md-6">
                 <label for="inputEmail">ชื่อ - สกุล(บิดา)</label>
-                <input type="text" class="form-control" id="f_name" value="<?php echo "$rs[f_name]"; ?>" input name="f_name" pattern="^[ก-๏\s]+$" title="กรุณากรอกชื่อ นามสกุล ภาษาไทย" required>
+                <input type="text" class="form-control" id="f_name" value="<?php echo "$rs[f_name]"; ?>" input name="f_name" onkeypress="isInputThai(event)"  required>
               </div>
             </div>
             <div class="form-group ">
               <label for="inputname">เบอร์ติดต่อ(บิดา)</label>
-              <input type="text" class="form-control" id="f_tel" value="<?php echo "$rs[f_tel]"; ?>" input name="f_tel" pattern="^[0-9]+$" title="กรุณากรอกตัวเลขเท่านั้น" maxlength="10" minlength="10" required>
+              <input type="text" class="form-control" id="f_tel" value="<?php echo "$rs[f_tel]"; ?>" input name="f_tel" onkeypress="isInputNumber(event)"  maxlength="10" minlength="10" required>
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputTel">รหัสประจำตัวประชาชน(มารดา)</label>
-                <input type="text" class="form-control" id="m_id" value="<?php echo "$rs[m_id]"; ?>" input name="m_id" pattern="^[0-9]+$" title="กรุณากรอกตัวเลขเท่านั้น" minlength="13" maxlength="13" required>
+                <input type="text" class="form-control" id="m_id" value="<?php echo "$rs[m_id]"; ?>" input name="m_id" onkeypress="isInputNumber(event)"  minlength="13" maxlength="13" required>
               </div>
               <div class="form-group col-md-6">
                 <label for="inputEmail">ชื่อ - สกุล(มารดา)</label>
-                <input type="text" class="form-control" id="m_name" value="<?php echo "$rs[m_name]"; ?>" input name="m_name" pattern="^[ก-๏\s]+$" title="กรุณากรอกชื่อ นามสกุล ภาษาไทย" required>
+                <input type="text" class="form-control" id="m_name" value="<?php echo "$rs[m_name]"; ?>" input name="m_name" onkeypress="isInputThai(event)" required>
               </div>
             </div>
             <div class="form-group ">
               <label for="inputname">เบอร์ติดต่อ(มารดา)</label>
-              <input type="text" class="form-control" id="m_tel" value="<?php echo "$rs[m_tel]"; ?>" input name="m_tel" pattern="^[0-9]+$" title="กรุณากรอกตัวเลขเท่านั้น" maxlength="10" minlength="10" required>
+              <input type="text" class="form-control" id="m_tel" value="<?php echo "$rs[m_tel]"; ?>" input name="m_tel" onkeypress="isInputNumber(event)" maxlength="10" minlength="10" required>
             </div>
             <div class="form-group ">
 
@@ -223,16 +223,16 @@ $rs = mysqli_fetch_array($result)
             </div>
             <div class="form-group ">
               <label for="inputname">รหัสประจำตัวประชาชน(ผู้ปกครอง)</label>
-              <input type="text" class="form-control" id="pa_id" value="<?php echo "$rs[pa_id]"; ?>" input name="pa_id" pattern="^[0-9]+$" title="กรุณากรอกตัวเลขเท่านั้น" minlength="13" maxlength="13" required>
+              <input type="text" class="form-control" id="pa_id" value="<?php echo "$rs[pa_id]"; ?>" input name="pa_id" onkeypress="isInputNumber(event)" minlength="13" maxlength="13" required>
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputname">ชื่อ-สกุล(ผู้ปกครอง)</label>
-                <input type="text" class="form-control" id="pa_name" value="<?php echo "$rs[pa_name]"; ?>" input name="pa_name" pattern="^[ก-๏\s]+$" title="กรุณากรอกชื่อ นามสกุล ภาษาไทย" required>
+                <input type="text" class="form-control" id="pa_name" value="<?php echo "$rs[pa_name]"; ?>" input name="pa_name" onkeypress="isInputThai(event)" required>
               </div>
               <div class="form-group col-md-6">
                 <label for="inputEmail">ความสัมพันธ์</label>
-                <input type="text" class="form-control" id="pa_relation" value="<?php echo "$rs[pa_relation]"; ?>" input name="pa_relation" pattern="^[ก-๏\s]+$" title="กรุณากรอก ภาษาไทย" required>
+                <input type="text" class="form-control" id="pa_relation" value="<?php echo "$rs[pa_relation]"; ?>" input name="pa_relation" onkeypress="isInputThai(event)" required>
               </div>
             </div>
             <div class="form-group">
@@ -242,11 +242,11 @@ $rs = mysqli_fetch_array($result)
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputTel">เบอร์ติดต่อ(ผู้ปกครอง)</label>
-                <input type="text" class="form-control" id="pa_tel" value="<?php echo "$rs[pa_tel]"; ?>" input name="pa_tel" pattern="^[0-9]+$" title="กรุณากรอกตัวเลขเท่านั้น" maxlength="10" minlength="10" required>
+                <input type="text" class="form-control" id="pa_tel" value="<?php echo "$rs[pa_tel]"; ?>" input name="pa_tel" onkeypress="isInputNumber(event)" maxlength="10" minlength="10" required>
               </div>
               <div class="form-group col-md-6">
                 <label for="inputEmail">อาชีพ(ผู้ปกครอง)</label>
-                <input type="text" class="form-control" id="pa_metier" value="<?php echo "$rs[pa_metier]"; ?>" input name="pa_metier" pattern="^[ก-๏\s]+$" title="กรุณากรอก ภาษาไทย" required>
+                <input type="text" class="form-control" id="pa_metier" value="<?php echo "$rs[pa_metier]"; ?>" input name="pa_metier" onkeypress="isInputThai(event)" required>
               </div>
             </div>
             </select>

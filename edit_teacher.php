@@ -56,16 +56,16 @@ $rs = mysqli_fetch_array($result)
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputUsername">ชื่อผู้ใช้</label>
-                <input type="text" class="form-control" id="t_username" placeholder="Username" input name="t_username"  value="<?php echo "$rs[t_username]"; ?>" pattern="^[a-zA-Z0-9]+$" title="กรุณากรอกตัวเลข หรือ ภาษาอังกฤษเท่านั้น">
+                <input type="text" class="form-control" id="t_username" placeholder="Username" input name="t_username"  value="<?php echo "$rs[t_username]"; ?>" onkeypress="isInputUsername(event)">
               </div>
               <div class="form-group col-md-6">
-                <label for="inputPassword4">รหัสผ่าน</label>
-                <input type="password" class="form-control" id="t_password" placeholder="Password" input name="t_password" value="<?php echo "$rs[t_password]"; ?>" pattern="^[a-zA-Z0-9]+$" title="กรุณากรอกตัวเลข หรือ ภาษาอังกฤษเท่านั้น">
+                <label for="inputPassword4">รหัสผ่าน</label><span style="color:red">*กรอกได้แค่ตัวอักษร A-Z,a-z และ 0-9 เท่านั้น</span>
+                <input type="password" class="form-control" id="t_password" placeholder="Password" input name="t_password" value="<?php echo "$rs[t_password]"; ?>" onkeypress="isInputPassword(event)">
               </div>
             </div>
             <div class="form-group ">
               <label for="inputname">ชื่อ-สกุล</label>
-              <input type="text" class="form-control" id="t_name" placeholder="Full Name" input name="t_name" value="<?php echo "$rs[t_name]"; ?>" pattern="^[ก-๏\s]+$" title="กรุณากรอกชื่อ นามสกุล ภาษาไทย">
+              <input type="text" class="form-control" id="t_name" placeholder="Full Name" input name="t_name" value="<?php echo "$rs[t_name]"; ?>" onkeypress="isInputThai(event)">
             </div>
             <div class="form-group">
               <label for="inputAddress">ที่อยู่</label>
@@ -74,7 +74,7 @@ $rs = mysqli_fetch_array($result)
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputTel">เบอร์ติดต่อ</label>
-                <input type="text" class="form-control" id="t_tel" placeholder="0622915580" input name="t_tel" value="<?php echo "$rs[t_tel]"; ?>" pattern="^[0-9]+$" title="กรุณากรอกตัวเลขเท่านั้น" maxlength="10" minlength="10">
+                <input type="text" class="form-control" id="t_tel" placeholder="0622915580" input name="t_tel" value="<?php echo "$rs[t_tel]"; ?>" maxlength="10" minlength="10" onkeypress="isInputNumber(event)">
               </div>
               <div class="form-group col-md-6">
                 <label for="inputEmail">E-Mail</label>
@@ -84,16 +84,16 @@ $rs = mysqli_fetch_array($result)
             <div class="form-row">
               <div class="form-group col-md-3">
                 <label for="inputTel">ปีที่เข้าสอน</label>
-                <input type="text" class="form-control" id="t_year" placeholder="2563" input name="t_year" value="<?php echo "$rs[t_year]"; ?>" pattern="^[0-9]+$" title="กรุณากรอกตัวเลขเท่านั้น">
+                <input type="text" class="form-control" id="t_year" placeholder="" input name="t_year" value="<?php echo "$rs[t_year]"; ?>" onkeypress="isInputNumber(event)">
               </div>
               <div class="form-group col-md-9">
                 <label for="inputEnd">สถานที่จบการศึกษา</label>
-                <input type="text" class="form-control" id="t_end" placeholder="มหาวิทยาลัยราชภัฏเพชรบูรณ์" input name="t_end" value="<?php echo "$rs[t_end]"; ?>" pattern="^[ก-๏\s]+$" title="กรุณากรอกภาษาไทย เท่านั้น">
+                <input type="text" class="form-control" id="t_end" placeholder="" input name="t_end" value="<?php echo "$rs[t_end]"; ?>" >
               </div>
             </div>
             <div class="form-group ">
               <label for="inputedu">ระดับการศึกษา</label>
-              <input type="text" class="form-control" id="t_educa" placeholder="ปริญญาตรี เอกเทคโนโลยีสารสนเทศและการสื่อสาร" input name="t_educa" value="<?php echo "$rs[t_educa]"; ?>" pattern="^[ก-๏\s]+$" title="กรุณากรอกภาษาไทย เท่านั้น">
+              <input type="text" class="form-control" id="t_educa" placeholder="" input name="t_educa" value="<?php echo "$rs[t_educa]"; ?>" onkeypress="isInputThai(event)">
             </div>
             <div class="form-group">
               <label for="exampleFormControlFile1">รูปประจำตัว</label>

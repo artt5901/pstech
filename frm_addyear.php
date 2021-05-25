@@ -32,7 +32,7 @@ $valid_username = $_SESSION["valid_uname"];
         <div class="form-group">
         </div>
         <div class="form-group">
-          <input name="y_number" input type="text" class="form-control" id="y_number" placeholder="กรอกข้อมูลปีการศึกษา" required/>
+          <input name="y_number" input type="text" class="form-control" id="y_number" placeholder="กรอกข้อมูลปีการศึกษา เช่น 2564/1 " onkeypress="isInputNumber1(event)" required/>
         </div>
         <div class="form-group text-center">
 

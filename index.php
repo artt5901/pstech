@@ -45,7 +45,7 @@ include 'connect.php'
                                 <?php 
                                 $sql2 = "SELECT * FROM news AS news 
 							INNER JOIN teacher AS teacher 
-								on (news.t_id = teacher.t_id) WHERE n_status = '1' AND current_date <= news.n_ex  ORDER BY news.n_id DESC  ";
+								on (news.t_id = teacher.t_id) WHERE n_status = '1' AND current_date <= news.n_ex  ORDER BY news.n_id DESC  limit 0,5";
                                 $result2 = mysqli_query($conn, $sql2)
                                     or die("3.ไม่สามารถประมวลผลคำสั่งได้") . mysqli_error();
                                 while ($rs2 = mysqli_fetch_array($result2)) { ?>
@@ -66,36 +66,7 @@ include 'connect.php'
 
                                     </div>
                                 <?php } ?>
-                                <!-- Single 
-                                <div class="single-slider">
-                                    <div class="trending-top mb-30">
-                                        <div class="trend-top-img">
-                                            <img src="assets/img/trending/test2.jpg" alt="">
-                                            <div class="trend-top-cap">
-                                                <h2><a href="latest_news.html" data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">ชื่อข่าวสาร เรื่องที่ 2</a></h2>
-                                                <p data-animation="fadeInUp" data-delay=".6s" data-duration="1000ms">by
-                                                    Alice cloe - Jun 19, 2020</p>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                </div>-->
-                                <!-- Single 
-                                <div class="single-slider">
-                                    <div class="trending-top mb-30">
-                                        <div class="trend-top-img">
-                                            <img src="assets/img/trending/test3.jpg" alt="">
-                                            <div class="trend-top-cap">
-                                        <h2><a href="latest_news.html" data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">3</a></h2>
-                                        <p data-animation="fadeInUp" data-delay=".6s" data-duration="1000ms">by
-                                            Alice cloe - Jun 19, 2020</p>
-                                    </div> 
-
-                                        </div>
-                                    </div>
-                                    
-                                </div>-->
+                                
                             </div>
                         </div>
                     </div>
@@ -122,30 +93,7 @@ include 'connect.php'
                                 <iframe width="1172" height="547" src="https://www.youtube.com/embed/PoGUguJ66Gc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
                             </div>
-                            <!-- <div class="video-items text-center">
-                                <video controls>
-                                    <source src="assets/video/news1.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                            <div class="video-items text-center">
-                                <video controls>
-                                    <source src="assets/video/news3.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                            <div class="video-items text-center">
-                                <video controls>
-                                    <source src="assets/video/news1.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                            <div class="video-items text-center">
-                                <video controls>
-                                    <source src="assets/video/news3.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div> -->
+                            
                         </div>
                     </div>
                 </div>
@@ -231,46 +179,7 @@ include 'connect.php'
                                                     </div>
                                                 </div>
                                             <?php } ?>
-                                            <!-- <div class="weekly3-single">
-                                                <div class="weekly3-img">
-                                                    <img src="assets/img/gallery/weekly2News2.png" alt="">
-                                                </div>
-                                                <div class="weekly3-caption">
-                                                    <h4><a href="latest_news.html">What to Expect From the 2020 Oscar
-                                                            Nomin ations</a></h4>
-                                                    <p>19 Jan 2020</p>
-                                                </div>
-                                            </div>
-                                            <div class="weekly3-single">
-                                                <div class="weekly3-img">
-                                                    <img src="assets/img/gallery/weekly2News3.png" alt="">
-                                                </div>
-                                                <div class="weekly3-caption">
-                                                    <h4><a href="latest_news.html">What to Expect From the 2020 Oscar
-                                                            Nomin ations</a></h4>
-                                                    <p>19 Jan 2020</p>
-                                                </div>
-                                            </div>
-                                            <div class="weekly3-single">
-                                                <div class="weekly3-img">
-                                                    <img src="assets/img/gallery/weekly2News4.png" alt="">
-                                                </div>
-                                                <div class="weekly3-caption">
-                                                    <h4><a href="latest_news.html">What to Expect From the 2020 Oscar
-                                                            Nomin ations</a></h4>
-                                                    <p>19 Jan 2020</p>
-                                                </div>
-                                            </div>
-                                            <div class="weekly3-single">
-                                                <div class="weekly3-img">
-                                                    <img src="assets/img/gallery/weekly2News2.png" alt="">
-                                                </div>
-                                                <div class="weekly3-caption">
-                                                    <h4><a href="latest_news.html">What to Expect From the 2020 Oscar
-                                                            Nomin ations</a></h4>
-                                                    <p>19 Jan 2020</p>
-                                                </div>
-                                            </div> -->
+                                            
                                         </div>
                                     </div>
                                 </div>

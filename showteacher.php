@@ -3,13 +3,14 @@ session_start();
 if (isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_SESSION["userlevel"])  == '2') {
   include "connect.php";
   include "include/head_menu_admin.php";
+  $valid_username = $_SESSION["valid_uname"];
 
   $sql = "SELECT d1.t_id,d1.t_username,d1.t_name,d1.t_tel,d2.po_name,d3.b_name,d1.t_pic
 				FROM teacher AS d1 
 				INNER JOIN position AS d2 
 					on (d1.po_id = d2.po_id)
 					INNER JOIN branch AS d3 
-						on (d1.b_id = d3.b_id)";
+						on (d1.b_id = d3.b_id) Where Not d1.t_username = '$valid_username'";
   $result = mysqli_query($conn, $sql)
     or die("3.ไม่สามารถประมวลผลคำสั่งได้") . mysqli_error();
 ?><head>

@@ -30,18 +30,18 @@ if (isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputUsername">ชื่อผู้ใช้</label><span style="color:red">*</span>
-                  <input type="text" class="form-control" id="t_username" placeholder="Username" input name="t_username">
+                  <input type="text" class="form-control" id="t_username" placeholder="Username" input name="t_username" onkeypress="isInputUsername(event)">
                   <span id="availability"></span>
-                  <?php include('checkteacher.php');?>
+                  <?php include('checkteacher.php'); ?>
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputPassword4">รหัสผ่าน</label><span style="color:red">*</span>
-                  <input type="password" class="form-control" id="t_password" placeholder="Password" input name="t_password">
+                  <label for="inputPassword4">รหัสผ่าน</label><span style="color:red">*กรอกได้แค่ตัวอักษร A-Z,a-z และ 0-9 เท่านั้น</span>
+                  <input type="password" class="form-control" id="t_password" placeholder="Password" input name="t_password" onkeypress="isInputPassword(event)">
                 </div>
               </div>
               <div class="form-group ">
-                <label for="inputname">ชื่อ-สกุล</label><span style="color:red">*ภาษาไทย</span>
-                <input type="text" class="form-control" id="t_name" placeholder="Full Name" input name="t_name">
+                <label for="inputname">ชื่อ-สกุล</label><span style="color:red; font-size : 12px;">*ภาษาไทย</span>
+                <input type="text" class="form-control" id="t_name" placeholder="Full Name" input name="t_name" onkeypress="isInputThai(event)">
               </div>
               <div class="form-group">
                 <label for="inputAddress">ที่อยู่</label><span style="color:red">*</span>
@@ -50,26 +50,26 @@ if (isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputTel">เบอร์ติดต่อ</label><span style="color:red">*</span>
-                  <input type="text" class="form-control" id="t_tel" placeholder="" input name="t_tel">
+                  <input type="text" class="form-control" id="t_tel" placeholder="" input name="t_tel" onkeypress="isInputNumber(event)">
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputEmail">E-Mail</label><span style="color:red">*</span>
-                  <input type="text" class="form-control" id="t_email" placeholder="email@example.com" input name="t_email">
+                  <label for="inputEmail">E-Mail</label>
+                  <input type="email" class="form-control" id="t_email" placeholder="email@example.com" input name="t_email">
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-3">
                   <label for="inputTel">ปีที่เข้าสอน</label><span style="color:red">*</span>
-                  <input type="text" class="form-control" id="t_year" placeholder="" input name="t_year">
+                  <input type="text" class="form-control" id="t_year" placeholder="" input name="t_year" onkeypress="isInputNumber(event)">
                 </div>
                 <div class="form-group col-md-9">
                   <label for="inputEnd">สถานที่จบการศึกษา</label><span style="color:red">*</span>
-                  <input type="text" class="form-control" id="t_end" placeholder="" input name="t_end">
+                  <input type="text" class="form-control" id="t_end" placeholder="" input name="t_end" >
                 </div>
               </div>
               <div class="form-group ">
-                <label for="inputedu">ระดับการศึกษา</label><span style="color:red">*</span>
-                <input type="text" class="form-control" id="t_educa" placeholder="" input name="t_educa">
+                <label for="inputedu">ระดับการศึกษา</label><span style="color:red; font-size : 12px;">*ระบุระดับการศึกษา และสาขาที่สำเร็จการศึกษา</span>
+                <input type="text" class="form-control" id="t_educa" placeholder="เช่น ปริญญาเอก สาขาคอมพิวเตอร์ธุรกิจ" input name="t_educa" onkeypress="isInputThai(event)">
               </div>
               <div class="form-group">
                 <label for="exampleFormControlFile1">รูปประจำตัว</label>
@@ -139,3 +139,4 @@ if (isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_
   exit();
 }
 ?>
+
