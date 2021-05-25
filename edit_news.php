@@ -110,6 +110,12 @@ $n_id = $_GET['n_id'];
                 <label for="example-date-input" class="col-9 col-form-label">วันที่ประชาสัมพันธ์</label>
                 <input class="form-control" type="date" id="n_date" input name="n_date" value="<?php echo "$rs[n_date]"; ?>" required>
               </div>
+              <div class="form-group col-md-5">
+                <label for="example-date-input" class="col-9 col-form-label">วันที่หมดอายุข่าว</label>
+                <input class="form-control" type="date" id="n_ex" input name="n_ex" value="<?php echo "$rs[n_ex]"; ?>" required>
+              </div>
+            </div>
+            <div class="form-row">
               <div class="form-group col-md-7">
                 <label for="example-date-input" class="col-9 col-form-label">ลิงค์สำหรับชมภาพกิจกรรม</label>
                 <input class="form-control" type="text" id="n_link" input name="n_link"  value="<?php echo "$rs[n_link]"; ?>" required>

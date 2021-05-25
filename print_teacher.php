@@ -71,5 +71,5 @@ $mpdf = MpdfHelper::getInstance(
     ['mode' => 'utf-8', 'format' => 'A4-L'] //  ขนาด
 );
 $mpdf->WriteHTML($html);
-$mpdf->Output($file_name, 'D');
+$mpdf->Output();
 ?>
