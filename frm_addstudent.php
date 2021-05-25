@@ -40,7 +40,7 @@ if (isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_
                   <?php include('checkstudent.php');?>
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputPassword4">รหัสผ่าน</label><span style="color:red">*กรอกได้แค่ตัวอักษร A-Z,a-z และ 0-9 เท่านั้น</span>
+                  <label for="inputPassword4">รหัสผ่าน</label><span style="color:red; font-size : 12px;">*กรอกได้แค่ตัวอักษร A-Z,a-z และ 0-9 เท่านั้น</span>
                   <input type="password" class="form-control" id="s_password" placeholder="Password" input name="s_password" onkeypress="isInputPassword(event)" required>
                 </div>
               </div>
