@@ -75,11 +75,12 @@ or die("3.ไม่สามารถประมวลผลคำสั่ง�
           <div class="card text" style="max-width: 1500px;">
             <div class="row no-gutters">
               <div class="col-md-12">
-                <table class="table table-hover" id="mytable">
-                  <thead><div class="col"><?php echo "<a href=\"print_news.php?\">"; ?><button class="col-3 btn btn-success btn-sm float-center" >พิมพ์รายงานข้อมูลข่าวสาร</button><?php echo "</a>"; ?></div>
-                    <tr class="bg-secondary text-white">
+                <table class="table table-hover" id="mytable-news">
+                  <thead>
+                                      <tr class="bg-secondary text-white">
                       <th scope="col">ข่าวสาร</th>
-                      <th scope="col">วัน/เดือน/ปีที่ลง</th>
+                      <th scope="col">วัน/เดือน/ปี</th>
+                      <th scope="col">วัน/เดือน/ปี หมดอายุข่าว</th>
                       <th scope="col">ผู้ประกาศ</th>
                       <th scope="col">-</th>
                       <th scope="col">-</th>
@@ -92,6 +93,7 @@ or die("3.ไม่สามารถประมวลผลคำสั่ง�
                       <tr>
                         <td><?php echo "$rs[n_name]"; ?></td>
                         <td><?php echo "$rs[n_date]"; ?></td>
+                        <td><?php echo "$rs[n_ex]"; ?></td>
                         <td><?php echo "$rs[t_name]"; ?></td>
                         <td><?php echo "<a href=\"edit_news.php?n_id=$rs[n_id]\">"; ?><button type="button" class="btn btn-warning">แก้ไข</button><?php echo "</a>"; ?></td>
                         <td><?php echo "<a href=\"del_news.php?n_id=$rs[n_id]\">"; ?><button type="button" class="btn btn-danger">ลบ</button><?php echo "</a>"; ?></td>
@@ -106,6 +108,8 @@ or die("3.ไม่สามารถประมวลผลคำสั่ง�
             </div>
           </div>
         </div>
+        <div class="col"><?php echo "<a href=\"print_news.php?\">"; ?><button class="col-3 btn btn-success btn-sm float-center" >พิมพ์รายงานข้อมูลข่าวสาร</button><?php echo "</a>"; ?></div>
+
         <div class="card-footer text-muted">
           Phasaktara Technological Callege
         </div>

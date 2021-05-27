@@ -3,23 +3,23 @@ session_start();
 if (isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_SESSION["userlevel"]) == '2') {
   include "include/head_menu_admin.php";
   include "connect.php";
-  
+
 ?>
   <title>Add Student Information To Phasaktara</title>
   <div class="card text-center">
     <div class="card-header">
       <ul class="nav nav-pills card-header-pills">
         <a class="nav-link active" href="showstudent_one.php">แสดงข้อมูลนักศึกษา</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="frm_addstudent.php">เพิ่มข้อมูลนักศึกษา</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="show_successstudent.php">นักศึกษาที่สำเร็จการศึกษาทั้งหมด</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="show_outstudent.php">นักศึกษาที่ลาออก</a>
-      </li>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="frm_addstudent.php">เพิ่มข้อมูลนักศึกษา</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="show_successstudent.php">นักศึกษาที่สำเร็จการศึกษาทั้งหมด</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="show_outstudent.php">นักศึกษาที่ลาออก</a>
+        </li>
       </ul>
     </div>
     <div class="card text-left">
@@ -37,7 +37,7 @@ if (isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_
                   <label for="inputUsername">รหัสนักศึกษา/ชื่อผู้ใช้</label><span style="color:red">*</span>
                   <input type="text" class="form-control" id="s_username" placeholder="Username/รหัสนักศึกษา" input name="s_username" onkeypress="isInputNumber(event)" required>
                   <span id="availability"></span>
-                  <?php include('checkstudent.php');?>
+                  <?php include('checkstudent.php'); ?>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputPassword4">รหัสผ่าน</label><span style="color:red; font-size : 12px;">*กรอกได้แค่ตัวอักษร A-Z,a-z และ 0-9 เท่านั้น</span>
@@ -46,11 +46,11 @@ if (isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_
               </div>
               <div class="form-group ">
                 <label for="inputname">รหัสบัตรประจำตัวประชาชน</label><span style="color:red">*</span>
-                <input type="text" class="form-control" id="s_idcard" placeholder="รหัสบัตรประจำตัวประชาชน" input name="s_idcard" minlength="13" maxlength="13" onkeypress="isInputNumber(event)"  required>
+                <input type="text" class="form-control" id="s_idcard" placeholder="รหัสบัตรประจำตัวประชาชน" input name="s_idcard" minlength="13" maxlength="13" onkeypress="isInputNumber(event)" required>
               </div>
               <div class="form-group ">
                 <label for="inputname">ชื่อ-สกุล</label><span style="color:red; font-size : 12px;">*ภาษาไทย</span>
-                <input type="text" class="form-control" id="s_name" placeholder="" input name="s_name" onkeypress="isInputThai(event)"  required>
+                <input type="text" class="form-control" id="s_name" placeholder="" input name="s_name" onkeypress="isInputThai(event)" required>
               </div>
               <div class="form-group">
                 <label for="inputAddress">ที่อยู่</label><span style="color:red">*</span>
@@ -69,11 +69,11 @@ if (isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_
               <div class="form-row">
                 <div class="form-group col-md-3">
                   <label for="inputTel">ปีที่เข้าศึกษา</label><span style="color:red">*</span>
-                  <input type="text" class="form-control" id="s_year" placeholder="" input name="s_year" onkeypress="isInputNumber(event)"  required>
+                  <input type="text" class="form-control"  id="s_year" placeholder="" input name="s_year" onkeypress="isInputNumber(event)" required>
                 </div>
                 <div class="form-group col-md-5">
                   <label for="example-date-input" class="col-9 col-form-label">วัน/เดือน/ปีเกิด<span style="color:red">*</span></label>
-                  <input class="form-control" type="date" id="s_hbd" input name="s_hbd" required>
+                  <input class="form-control" type="date" id="s_hbd"  input name="s_hbd" required>
                 </div>
               </div>
               <div class="form-group">
@@ -81,28 +81,28 @@ if (isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_
                 <input type="file" id="photo" name="s_image">
               </div>
               <?php
-    
-				?>
+
+              ?>
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputBranch">เลือกสาขา</label><span style="color:red">*</span>
                   <select class="form-control" name="b_id" id="branch">
-            		<option value="" selected disabled>-กรุณาเลือกสาขา-</option>
-             			<?php $sql_branch = "SELECT * FROM branch";
-    							$query = mysqli_query($conn, $sql_branch); 
-								foreach ($query as $value) { ?>
-            		<option value="<?=$value['b_id']?>"><?=$value['b_name']?></option>
-            			<?php } ?>
-      			</select>
+                    <option value="" selected disabled>-กรุณาเลือกสาขา-</option>
+                    <?php $sql_branch = "SELECT * FROM branch";
+                    $query = mysqli_query($conn, $sql_branch);
+                    foreach ($query as $value) { ?>
+                      <option value="<?= $value['b_id'] ?>"><?= $value['b_name'] ?></option>
+                    <?php } ?>
+                  </select>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputBranch">เลือกหมู่เรียน</label><span style="color:red">*</span>
                   <select class="form-control" name="class_id" id="class_id">
-      				</select>
+                  </select>
                 </div>
               </div>
               <div class="form-row">
-              <div class="form-group col-md-4">
+                <div class="form-group col-md-4">
                   <label for="inputBranch">สถานะการศึกษา</label><span style="color:red">*</span>
                   <select class="form-control" select name="st_id" id="st_id" required>
                     <option value="1">กำลังศึกษา</option>
@@ -129,7 +129,7 @@ if (isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputTel">รหัสประจำตัวประชาชน(บิดา)</label>
-                  <input type="text" class="form-control" id="f_id" placeholder="กรอกรหัสประตัวประชาชน(บิดา)" input onkeypress="isInputNumber(event)" minlength="13" maxlength="13" name="f_id" >
+                  <input type="text" class="form-control" id="f_id" placeholder="กรอกรหัสประตัวประชาชน(บิดา)" input onkeypress="isInputNumber(event)" minlength="13" maxlength="13" name="f_id">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputEmail">ชื่อ - สกุล(บิดา)</label><span style="color:red; font-size : 12px;">*ภาษาไทย</span>
@@ -143,7 +143,7 @@ if (isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputTel">รหัสประจำตัวประชาชน(มารดา)</label>
-                  <input type="text" class="form-control" id="m_id" placeholder="กรอกรหัสประตัวประชาชน(มารดา)" input onkeypress="isInputNumber(event)" minlength="13" maxlength="13" name="m_id" >
+                  <input type="text" class="form-control" id="m_id" placeholder="กรอกรหัสประตัวประชาชน(มารดา)" input onkeypress="isInputNumber(event)" minlength="13" maxlength="13" name="m_id">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputEmail">ชื่อ - สกุล(มารดา)</label><span style="color:red; font-size : 12px;">*ภาษาไทย</span>
@@ -161,8 +161,8 @@ if (isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_
                 </label>
               </div>
               <div class="form-group ">
-                <label for="inputname">รหัสประจำตัวประชาชน(ผู้ปกครอง)</label> 
-                <input type="text" class="form-control" id="pa_id" placeholder="กรอกรหัสประจำตัวประชาชน(ผู้ปกครอง)" input onkeypress="isInputNumber(event)" name="pa_id" minlength="13"  maxlength="13" >
+                <label for="inputname">รหัสประจำตัวประชาชน(ผู้ปกครอง)</label>
+                <input type="text" class="form-control" id="pa_id" placeholder="กรอกรหัสประจำตัวประชาชน(ผู้ปกครอง)" input onkeypress="isInputNumber(event)" name="pa_id" minlength="13" maxlength="13">
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
@@ -185,7 +185,7 @@ if (isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputEmail">อาชีพ(ผู้ปกครอง)</label>
-                  <input type="text" class="form-control" id="pa_metier" placeholder="กรอกอาชีพ(ผู้ปกครอง)" input onkeypress="isInputThai(event)"  name="pa_metier">
+                  <input type="text" class="form-control" id="pa_metier" placeholder="กรอกอาชีพ(ผู้ปกครอง)" input onkeypress="isInputThai(event)" name="pa_metier">
                 </div>
               </div>
               <div class="form-group">
@@ -214,7 +214,8 @@ if (isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_
       </div>
     </div>
   </div>
-<?php include('script_student.php');?>
+  
+  <?php include('script_student.php'); ?>
 <?php
 } else {
   echo "<script> alert('Please Login');window.location = 'index.php';</script>";

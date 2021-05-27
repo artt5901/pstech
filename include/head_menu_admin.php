@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sarabun">
-<style>
+  <style>
     body,
     h1,
     h2,
@@ -17,11 +17,11 @@
     h3,
     h4,
     p {
-        font-family: 'Sarabun';
+      font-family: 'Sarabun';
     }
-</style>
+  </style>
 
-
+ 
 </head>
 
 <body>
@@ -59,6 +59,7 @@
             <a class="dropdown-item" href="showstudent_one.php">ข้อมูลนักศึกษา</a>
             <a class="dropdown-item" href="showportfolio.php">ผลงานนักศึกษา</a>
             <a class="dropdown-item" href="showparent.php">ข้อมูลผู้ปกครอง</a>
+            <a class="dropdown-item" href="showgrade_first.php">แสดงผลการเรียน</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="frm_addstudent.php">เพิ่มข้อมูลนักศึกษา</a>
             <a class="dropdown-item" href="frm_addportfolio.php">เพิ่มผลงานนักศึกษา</a>
@@ -134,68 +135,91 @@
   <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
 
   <script>
     $(document).ready(function() {
-      $('#mytable').DataTable();
+      $('#mytable').DataTable({
+        "oLanguage": {
+          "sSearch": "ค้นหา:"
+        }
+      });
+    });
+
+    $(document).ready(function() {
+      $('#mytable-year').DataTable({
+        "oLanguage": {
+          "sSearch": "ค้นหาปีที่เข้าศึกษา:"
+        }
+      });
+    });
+
+    $(document).ready(function() {
+      $('#mytable-class').DataTable({
+        "oLanguage": {
+          "sSearch": "ค้นหาสาขา หรือหมู่เรียน:"
+        }
+      });
+    });
+
+    $(document).ready(function() {
+      $('#mytable-class1').DataTable({
+        "oLanguage": {
+          "sSearch": "ค้นหาหมู่เรียน หรือสาขา:"
+        }
+      });
+    });
+
+    $(document).ready(function() {
+      $('#mytable-class2').DataTable({
+        "oLanguage": {
+          "sSearch": "ค้นหาสาขา,หมู่เรียน หรือแผนก:"
+        }
+      });
+    });
+
+    $(document).ready(function() {
+      $('#mytable-student').DataTable({
+        "oLanguage": {
+          "sSearch": "ค้นหารหัสนักศึกษา หรือชื่อ-สกุล:"
+        }
+      });
+    });
+
+    $(document).ready(function() {
+      $('#mytable-teacher').DataTable({
+        "oLanguage": {
+          "sSearch": "ค้นหาชื่อ-สกุล หรือตำแหน่ง:"
+        }
+      });
+    });
+
+    $(document).ready(function() {
+      $('#mytable-portfolio').DataTable({
+        "oLanguage": {
+          "sSearch": "ค้นหาชื่อผลงาน หรือชื่อนักศึกษา:"
+        }
+      });
+    });
+
+    $(document).ready(function() {
+      $('#mytable-course').DataTable({
+        "oLanguage": {
+          "sSearch": "ค้นหารหัส หรือชื่อรายวิชา:"
+        }
+      });
+    });
+
+    $(document).ready(function() {
+      $('#mytable-news').DataTable({
+        "oLanguage": {
+          "sSearch": "ค้นหาชื่อข่าวสาร:"
+        }
+      });
     });
   </script>
-
-<script>
-  function isInputNumber(evt) {
-    var ch = String.fromCharCode(evt.which);
-    if (!(/[0-9]/.test(ch))) {
-      evt.preventDefault();
-    }
-  }
-  function isInputNumber1(evt) {
-    var ch = String.fromCharCode(evt.which);
-    if (!(/[0-9 && / ]/.test(ch))) {
-      evt.preventDefault();
-    }
-  }
-
-  function isInputChar(evt) {
-    var ch = String.fromCharCode(evt.which);
-    if (!(/[a-z && A-Z && ก-ฮ && ะ && า &&  ิ &&  ี && ึ && ื && ุ && ู && เ && แ && โ && ์ && ่ && ้ && ั && ๊ && ็ && ใ && ๋ && ๆ && ไ && ำ]/.test(ch))) {
-      evt.preventDefault();
-    }
-  }
-
-  function isInputUsername(evt) {
-    var ch = String.fromCharCode(evt.which);
-    if (!(/[a-z && A-Z && 0-9]/.test(ch))) {
-      evt.preventDefault();
-    }
-  }
-
-  function isInputPassword(evt) {
-    var ch = String.fromCharCode(evt.which);
-    if (!(/[a-z && A-Z && 0-9]/.test(ch))) {
-      evt.preventDefault();
-    }
-  }
-  function isInputThai(evt) {
-    var ch = String.fromCharCode(evt.which);
-    if (!(/[ก-ฮ && ะ && า &&  ิ &&  ี && ึ && ื && ุ && ู && เ && แ && โ && ์ && ่ && ้ && ั && ๊ && ็ && ใ && ๋ && ๆ && ไ && ำ && .]/.test(ch))) {
-      evt.preventDefault();
-    }
-  }
-
-  function isInputEng(evt) {
-    var ch = String.fromCharCode(evt.which);
-    if (!(/[[a-z && A-Z]/.test(ch))) {
-      evt.preventDefault();
-    }
-  }
-
-  function isInputThaiNum(evt) {
-    var ch = String.fromCharCode(evt.which);
-    if (!(/[ก-ฮ && ะ && า &&  ิ &&  ี && ึ && ื && ุ && ู && เ && แ && โ && ์ && ่ && ้ && ั && ๊ && ็ && ใ && ๋ && ๆ && ไ && ำ && . && 0-9]/.test(ch))) {
-      evt.preventDefault();
-    }
-  }
-</script>
 
 </body>
 

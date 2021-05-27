@@ -49,7 +49,7 @@ $rs = mysqli_fetch_array($result)
               
           <div class="row no-gutters">
             <div class="col-md-12">
-            <div class="col"><button class="col-12 btn btn-secondary btn-sm float-left" input type="button" onclick=window.history.back() >back</button></div>
+            
             <table class="table table-hover" >
                 <thead>
                   <tr class="bg-success text-white">
@@ -65,7 +65,7 @@ $rs = mysqli_fetch_array($result)
                   </tr>
                 </thead>
 
-              <table class="table table-hover" id="mytable" >
+              <table class="table table-hover" >
                 <thead>
                   <tr class="bg-danger text-white">
                     <th scope="col">รหัสนักศึกษา</th>
@@ -103,8 +103,8 @@ $rs = mysqli_fetch_array($result)
         <div class="form-group">
           <div class="container">
             <div class="row">
-              <div class="col"><button class="col-6 btn btn-primary btn-sm float-right">Save</button></div>
-              <div class="col"><button class="col-6 btn btn-secondary btn-sm float-left" input type="reset" >Reset</button></div>
+              <div class="col"><button class="col-4 btn btn-primary btn-sm float-right">Save</button></div>
+              <div class="col"><button class="col-4 btn btn-danger btn-sm float-left" input type="reset" >Reset</button></div>
               
             </div>
           </div>
@@ -117,9 +117,10 @@ $rs = mysqli_fetch_array($result)
           </div>
         </div>
       </div>
-      <div class="card-footer text-center">
-        Phasaktara Technological Callege
-      </div>
+      <div class="form-group">
+              <div class="col"><button class="col-3 btn btn-secondary btn-sm float-center" input type="button" onclick=window.history.back() >back</button></div>
+          </div></div>
+     
       <?php
 } else {
   echo "<script> alert('Please Login');window.location = 'index.html';</script>";

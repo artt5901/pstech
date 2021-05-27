@@ -47,7 +47,7 @@ if (isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_
         <div class="col"><?php echo "<a href=\"print_teacher.php?\""; ?><button class="col-2 btn btn-success btn-sm float-center" href="print_teacher.php" >พิมพ์รายงานข้อมูลอาจารย์</button><?php echo "</a>"; ?></div>
             <div class="row no-gutters">
               <div class="col-md-12">
-                <table class="table table-hover" id="mytable">
+                <table class="table table-hover" id="mytable-teacher">
                   <thead>
                     <tr class="bg-secondary text-white">
                       <th scope="col">รูปภาพ</th>

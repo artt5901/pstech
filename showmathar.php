@@ -35,7 +35,7 @@ if(isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_S
   <div class="row no-gutters">
     <div class="col-md-12">
 <table class="table table-hover"  id="mytable">
-  <thead><div class="col"><?php echo "<a href=\"print_father_mathar.php?\">"; ?><button class="col-3 btn btn-success btn-sm float-center" >พิมพ์รายงานข้อมูลบิดา-มารดา</button><?php echo "</a>"; ?></div>
+  <thead>
     <tr class="bg-secondary text-white" >
       <th scope="col">เลขบัตรประจำตัวประชาชน</th>
       <th scope="col">ชื่อ-สกุล</th>
@@ -61,6 +61,7 @@ if(isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_S
  </div>
   </div>
 </div>
+<div class="col"><?php echo "<a href=\"print_father_mathar.php?\">"; ?><button class="col-3 btn btn-success btn-sm float-center" >พิมพ์รายงานข้อมูลบิดา-มารดา</button><?php echo "</a>"; ?></div>
   <div class="card-footer text-muted">
     Phasaktara Technological Callege
   </div>

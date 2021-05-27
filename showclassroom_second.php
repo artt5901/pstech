@@ -43,7 +43,7 @@ $rs = mysqli_fetch_array($result)
         
         <form action="" method="post"> <!-- ที่ใส่ action ว่างเพราะจะส่งค่า คืนกลับหน้าเดิม ขึ้นไปทำงานคำสั่ง php ด้านบน -->
                 <div class="form-group">
-              <div class="col"><button class="col-12 btn btn-secondary btn-sm float-left" input type="button" onclick=window.history.back() >back</button></div>
+              <div class="col">
           </div>
         </div>
                 <table class="table table-warning" >
@@ -96,6 +96,7 @@ $rs = mysqli_fetch_array($result)
           </div>
         </div>
       </div>
+      <div class="col"><button class="col-3 btn btn-secondary btn-sm float-center" input type="button" onclick=window.history.back() >back</button></div>
       <div class="card-footer text-muted">
         Phasaktara Technological Callege
       </div>

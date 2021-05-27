@@ -27,7 +27,6 @@ if(isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_S
     <h1>แสดงข้อมูลตำแหน่ง</h1>    
   </div>
 <div class="card text"  style="max-width: 1100px;" >
-<div class="col"><?php echo "<a href=\"print_position.php?\""; ?><button class="col-2 btn btn-success btn-sm float-center" href="print_teacher.php" >ออกรายงานข้อมูลตำแหน่ง</button><?php echo "</a>"; ?></div>
   <div class="row no-gutters">
     <div class="col-md-12">
 <table class="table table-hover">
@@ -59,6 +58,8 @@ if(isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_S
  </div>
   </div>
 </div>
+<div class="col"><?php echo "<a href=\"print_position.php?\""; ?><button class="col-2 btn btn-success btn-sm float-center" href="print_teacher.php" >ออกรายงานข้อมูลตำแหน่ง</button><?php echo "</a>"; ?></div>
+
   <div class="card-footer text-muted">
     Phasaktara Technological Callege
   </div>

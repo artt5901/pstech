@@ -75,6 +75,14 @@
     $(document).ready(function() {
       $('#mytable').DataTable();
     });
+
+    $(document).ready(function() {
+      $('#mytable-portfolio').DataTable({
+        "oLanguage": {
+          "sSearch": "ค้นหาชื่อผลงาน:"
+        }
+      });
+    });
   </script>
 
 <script>

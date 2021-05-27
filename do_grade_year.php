@@ -1,9 +1,16 @@
 <?php
 session_start();
 if(isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"])){
-include "include/head_menu_grade.php";
+
 include "connect.php";
+$valid_status = $_SESSION["userlevel"];
 $valid_username = $_SESSION["valid_uname"];
+if ($valid_status == '2') {
+  include "include/head_menu_admin.php";
+}
+if ($valid_status == '3') {
+  include "include/head_menu_grade.php";
+}
 $s_username = $_GET['s_username'];
 $sql = "SELECT (sum(score*c_credit)/sum(c_credit)) as grade , grade.s_username , stu.s_name , class.class_name , year.y_number 
 				FROM grade as grade inner join student as stu on (grade.s_username = stu.s_username)
@@ -85,7 +92,7 @@ $result = mysqli_query($conn, $sql)
                   mysqli_close($conn);
                   ?>
                 </tbody>
-                <div class="col"><button class="col btn btn-danger btn-sm float-left" input type="button" onclick=window.history.back() >back</button></div>
+                
               </table>
               <table class="table table-hover">
                 <thead>
@@ -99,6 +106,7 @@ $result = mysqli_query($conn, $sql)
           </div>
         </div>
       </div>
+      <div class="col"><button class="col-3 btn btn-secondary btn-sm float-center" input type="button" onclick=window.history.back() >back</button></div>
       <div class="card-footer text-muted">
         Phasaktara Technological Callege
       </div>

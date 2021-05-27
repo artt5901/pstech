@@ -4,44 +4,14 @@
 	
 $s_username = $_GET['s_username'];
 	
-	$sql = "SELECT 
-			student.s_username ,
-			student.s_password , 
-			student.s_name , 
-			student.s_idcard ,
-			student.s_address ,
-			student.s_tel , 
-			student.s_email , 
-			student.s_year , 
-			student.s_hbd , 
-			student.s_brethren , 
-			student.st_id , 
-			student.s_child , 
-			student.s_pic ,
-			father.f_id , 
-			father.f_name , 
-			father.f_tel ,
-			mathar.m_id , 
-			mathar.m_name , 
-			mathar.m_tel ,
-			parent.pa_id , 
-			parent.pa_name,  
-			parent.pa_address , 
-			parent.pa_tel , 
-			parent.pa_relation , 
-			parent.pa_metier ,
-			class.class_name
-			FROM student AS student
-				INNER JOIN father AS father
-					on (student.f_id = father.f_id)
-				INNER JOIN mathar AS mathar
-					on (student.m_id = mathar.m_id)
-				INNER JOIN parent AS parent
-					on (student.pa_id = parent.pa_id)
-				INNER JOIN class as class
-					on (student.class_id = class.b_id)
-				WHERE s_username = '$s_username' ";
-		$result = mysqli_query($conn,$sql)
+	$sql = "SELECT *
+  FROM student 
+  inner join father on (student.f_id = father.f_id)
+  inner join mathar on (student.m_id = mathar.m_id)
+  inner join parent on (student.pa_id = parent.pa_id)
+  inner join class on (student.class_id = class.class_id)
+    WHERE s_username = '$s_username' ";
+		$result = mysqli_query($conn, $sql)
 	 	or die("3.ไม่สามารถประมวลผลคำสั่งได้").mysqli_error();
 	 	$rs = mysqli_fetch_array($result)
 ?>
@@ -95,7 +65,7 @@ $s_username = $_GET['s_username'];
   <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputUsername">รหัสนักศึกษา/ชื่อผู้ใช้</label>
-                <input type="text" class="form-control" id="s_username"  placeholder="Username/รหัสนักศึกษา" input name="s_username" disabled="disabled" value="<?php echo "$rs[s_username]";?>" required>
+                <input type="text" class="form-control" id="s_username"  placeholder="Username/รหัสนักศึกษา" input name="s_username" disabled="disabled" value="<?php echo "$rs[s_username]"; ?>" required>
               </div>
               <div class="form-group col-md-6">
                 <label for="inputPassword4">รหัสผ่าน</label>

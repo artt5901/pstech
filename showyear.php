@@ -35,7 +35,7 @@ $valid_username = $_SESSION["valid_uname"];
     <div class="col-md-12">
 <table class="table table-hover">
   <thead>
-  <div class="col"><?php echo "<a href=\"print_year.php?\">"; ?><button class="col-3 btn btn-success btn-sm float-center" >พิมพ์รายงานข้อมูลปีการศึกษา/ภาคเรียน</button><?php echo "</a>"; ?></div>
+ 
     <tr class="bg-secondary text-white">
       <th scope="col">#</th>
       <th scope="col">ปีการศึกษา/ภาคเรียน</th>
@@ -63,6 +63,7 @@ $valid_username = $_SESSION["valid_uname"];
  </div>
   </div>
 </div>
+ <div class="col"><?php echo "<a href=\"print_year.php?\">"; ?><button class="col-3 btn btn-success btn-sm float-center" >พิมพ์รายงานข้อมูลปีการศึกษา/ภาคเรียน</button><?php echo "</a>"; ?></div>
   <div class="card-footer text-muted">
     Phasaktara Technological Callege
   </div>

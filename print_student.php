@@ -38,19 +38,27 @@ h1 {
         <tr>
 			<th>รหัสนักศึกษา</th>
             <th>ชื่อนักศึกษา</th>
-            <th>ปี/เดือน/วันที่เกิด</th>
+			<th>ปีที่เข้าศึกษา</th>
+			<th>เบอร์ติดต่อ</th>
+			<th>ผู้ปกครอง</th>
+			<th>เบอร์ติดต่อ(ผู้ปกครอง)</th>
         </tr>
        
 ';
 
 
-$sql2 = "SELECT * FROM student where class_id = '$class_id'";
+$sql2 = "SELECT * FROM student 
+		inner join parent on (student.pa_id = parent.pa_id) 
+		where class_id = '$class_id'";
 $result2 = mysqli_query($conn, $sql2);
 while($row = mysqli_fetch_assoc($result2)) {
 $html .= ' <tr>
 <td>'.$row['s_username'].'</td>
 <td>'.$row['s_name'].'</td>
-<td>'.$row['s_hbd'].'</td>
+<td>'.$row['s_year'].'</td>
+<td>'.$row['s_tel'].'</td>
+<td>'.$row['pa_name'].'</td>
+<td>'.$row['pa_tel'].'</td>
 </tr>
 ';
 }

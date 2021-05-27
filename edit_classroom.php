@@ -44,27 +44,27 @@ if (isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_
             <form id="form1" name="form1" method="post" enctype="multipart/form-data" action="editclassroom.php">
               <input name="classroom_id" type="hidden" id="classroom_id" value="<?php echo "$rs[classroom_id]"; ?>" />
               <div class="modal fade" id="myModal">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">คำเตือน</h5>
-                    <button class="close" data-dismiss="modal">
-                      <span>&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <p>คุณต้องการบันทึกการแก้ไขข้อมูลหรือไม่</p>
-                  </div>
-                  <div class="modal-footer">
-                    <a class="btn btn-danger text-white" data-dismiss="modal">ปิด</a>
-                    <div class="col"><button class="btn btn-success float-right">ตกลง</button></div>
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">คำเตือน</h5>
+                      <button class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>คุณต้องการบันทึกการแก้ไขข้อมูลหรือไม่</p>
+                    </div>
+                    <div class="modal-footer">
+                      <a class="btn btn-danger text-white" data-dismiss="modal">ปิด</a>
+                      <div class="col"><button class="btn btn-success float-right">ตกลง</button></div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="form-group ">
+              <div class="form-group col-md-7">
                 <label for="inputBranch">เลือกหมู่เรียน</label>
-                <select class="form-control" select name="class_id" id="class_id" required>
+                <select class="form-control" select name="class_id" id="class_id" disabled required>
                   <?php
                   echo "$rs[class_id]";
                   $sql1 = "SELECT * FROM class order by class_id desc ";
@@ -79,102 +79,109 @@ if (isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_
                   }
                   ?>
                 </select>
-            </div>
-            <div class="form-row">
-              	<div class="form-group col-md-7">
-              <label for="inputname">รายวิชา</label>
-              <select class="form-control" select name="c_id" id="c_id" required>
-              
-             	 <?php
-                  echo "$rs[c_id]";
-                  $sql1 = "SELECT * FROM course order by c_id desc ";
-                  $result1 = mysqli_query($conn, $sql1);
-                  while ($rs1 = mysqli_fetch_array($result1)) {
-                    echo "<option value=\"$rs1[c_id]\" ";
-                    if ("$rs[c_id]" == "$rs1[c_id]") {
-                      echo 'selected';
-                    }
-                    echo ">$rs1[c_name]";
-                    echo "</option>\n";
-                  }
-                  ?>
-                </select>
-            	</div>
-           	 	<div class="form-group col-md-3">
-              <label for="inputBranch">ปีการศึกษา/ภาคเรียน</label>
-                <select class="form-control" select name="y_id" id="y_id" required>
-                  <?php
-                  echo "$rs[y_id]";
-                  $sql1 = "SELECT * FROM year order by y_id desc ";
-                  $result1 = mysqli_query($conn, $sql1);
-                  while ($rs1 = mysqli_fetch_array($result1)) {
-                    echo "<option value=\"$rs1[y_id]\" ";
-                    if ("$rs[y_id]" == "$rs1[y_id]") {
-                      echo 'selected';
-                    }
-                    echo ">$rs1[y_number]";
-                    echo "</option>\n";
-                  }
-                  ?>
-                </select>
-            </div>
-            </div>
-            <div class="form-row">
-              	<div class="form-group col-md-4">
-              <label for="inputname">อาจารย์ผู้สอน</label>
-              <select class="form-control" select name="t_id" id="t_id" required>
-                   <?php
-                  echo "$rs[t_id]";
-                  $sql1 = "SELECT * FROM teacher order by t_id desc ";
-                  $result1 = mysqli_query($conn, $sql1);
-                  while ($rs1 = mysqli_fetch_array($result1)) {
-                    echo "<option value=\"$rs1[t_id]\" ";
-                    if ("$rs[t_id]" == "$rs1[t_id]") {
-                      echo 'selected';
-                    }
-                    echo ">$rs1[t_name]";
-                    echo "</option>\n";
-                  }
-                  ?>
-                </select>
-            	</div>
-                <div class="form-group col-md-4">
-                <label for="inputBranch">วัน</label>
-                <select class="form-control" select name="day_id" id="day_id" required>
-                  <?php
-                  echo "$rs[day_id]";
-                  $sql1 = "SELECT * FROM day ";
-                  $result1 = mysqli_query($conn, $sql1);
-                  while ($rs1 = mysqli_fetch_array($result1)) {
-                    echo "<option value=\"$rs1[day_id]\" ";
-                    if ("$rs[day_id]" == "$rs1[day_id]") {
-                      echo 'selected';
-                    }
-                    echo ">$rs1[day_name]";
-                    echo "</option>\n";
-                  }
-                  ?>
-                </select>
               </div>
-              <div class="form-group col-md-4">
-                <label for="inputBranch">เวลาเริ่มเรียน</label>
-                <select class="form-control" select name="time_id" id="time_id" required>
-                  <?php
-                  echo "$rs[time_id]";
-                  $sql1 = "SELECT * FROM time ";
-                  $result1 = mysqli_query($conn, $sql1);
-                  while ($rs1 = mysqli_fetch_array($result1)) {
-                    echo "<option value=\"$rs1[time_id]\" ";
-                    if ("$rs[time_id]" == "$rs1[time_id]") {
-                      echo 'selected';
+              <div class="form-row">
+                <div class="form-group col-md-7">
+                  <label for="inputname">รายวิชา</label>
+                  <select class="form-control" select name="c_id" id="c_id" required>
+
+                    <?php
+                    echo "$rs[c_id]";
+                    $sql1 = "SELECT * FROM course order by c_id desc ";
+                    $result1 = mysqli_query($conn, $sql1);
+                    while ($rs1 = mysqli_fetch_array($result1)) {
+                      echo "<option value=\"$rs1[c_id]\" ";
+                      if ("$rs[c_id]" == "$rs1[c_id]") {
+                        echo 'selected';
+                      }
+                      echo ">$rs1[c_name]";
+                      echo "</option>\n";
                     }
-                    echo ">$rs1[time_name]";
-                    echo "</option>\n";
-                  }
-                  ?>
-                </select>
-            </div>
-            </div>
+                    ?>
+                  </select>
+                  <span id="availability"></span>
+                </div>
+                
+                <div class="form-group col-md-3">
+                  <label for="inputBranch">ปีการศึกษา/ภาคเรียน</label>
+                  <select class="form-control" select name="y_id" id="y_id" required>
+                    <?php
+                    echo "$rs[y_id]";
+                    $sql1 = "SELECT * FROM year order by y_id desc ";
+                    $result1 = mysqli_query($conn, $sql1);
+                    while ($rs1 = mysqli_fetch_array($result1)) {
+                      echo "<option value=\"$rs1[y_id]\" ";
+                      if ("$rs[y_id]" == "$rs1[y_id]") {
+                        echo 'selected';
+                      }
+                      echo ">$rs1[y_number]";
+                      echo "</option>\n";
+                    }
+                    ?>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                
+                <div class="form-group col-md-4">
+                  <label for="inputBranch">วัน</label>
+                  <select class="form-control" select name="day_id" id="day_id" required>
+                    <?php
+                    echo "$rs[day_id]";
+                    $sql1 = "SELECT * FROM day ";
+                    $result1 = mysqli_query($conn, $sql1);
+                    while ($rs1 = mysqli_fetch_array($result1)) {
+                      echo "<option value=\"$rs1[day_id]\" ";
+                      if ("$rs[day_id]" == "$rs1[day_id]") {
+                        echo 'selected';
+                      }
+                      echo ">$rs1[day_name]";
+                      echo "</option>\n";
+                    }
+                    ?>
+                  </select>
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="inputBranch">เวลาเริ่มเรียน</label>
+                  <select class="form-control" select name="time_id" id="time_id" required>
+                    <?php
+                    echo "$rs[time_id]";
+                    $sql1 = "SELECT * FROM time ";
+                    $result1 = mysqli_query($conn, $sql1);
+                    while ($rs1 = mysqli_fetch_array($result1)) {
+                      echo "<option value=\"$rs1[time_id]\" ";
+                      if ("$rs[time_id]" == "$rs1[time_id]") {
+                        echo 'selected';
+                      }
+                      echo ">$rs1[time_name]";
+                      echo "</option>\n";
+                    }
+                    ?>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="inputname">อาจารย์ผู้สอน</label>
+                  <select class="form-control" select name="t_id" id="t_id" required>
+                    <?php
+                    echo "$rs[t_id]";
+                    $sql1 = "SELECT * FROM teacher order by t_id desc ";
+                    $result1 = mysqli_query($conn, $sql1);
+                    while ($rs1 = mysqli_fetch_array($result1)) {
+                      echo "<option value=\"$rs1[t_id]\" ";
+                      if ("$rs[t_id]" == "$rs1[t_id]") {
+                        echo 'selected';
+                      }
+                      echo ">$rs1[t_name]";
+                      echo "</option>\n";
+                    }
+                    ?>
+                  </select>
+                </div>
+                
+                
+              </div>
             </form>
             <div class="form-group text-center">
 
@@ -199,6 +206,8 @@ if (isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_
     </div>
   </div>
   </div>
+
+  <?php include('script_student.php'); ?>
 <?php
 } else {
   echo "<script> alert('Please Login');window.location = 'index.php';</script>";

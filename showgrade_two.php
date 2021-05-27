@@ -2,8 +2,14 @@
 session_start();
 if(isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_SESSION["userlevel"])  == '2'){
 include "connect.php";
-include "include/head_menu_grade.php";
-
+$valid_status = $_SESSION["userlevel"];
+$valid_username = $_SESSION["valid_uname"];
+if ($valid_status == '2') {
+  include "include/head_menu_admin.php";
+}
+if ($valid_status == '3') {
+  include "include/head_menu_grade.php";
+}
 $class_id = $_GET['class_id'];
 $sql = "SELECT *
 				FROM student AS student 
@@ -86,12 +92,13 @@ $result = mysqli_query($conn, $sql)
                   mysqli_close($conn);
                   ?>
                 </tbody>
-                 <div class="col"><button class="col btn btn-danger btn-sm float-left" input type="button" onclick=window.history.back() >back</button></div>
+                 
               </table>
             </div>
           </div>
         </div>
       </div>
+      <div class="col"><button class="col-3 btn btn-secondary btn-sm float-center" input type="button" onclick=window.history.back() >back</button></div>
       <div class="card-footer text-muted">
         Phasaktara Technological Callege
       </div>

@@ -2,7 +2,14 @@
 session_start();
 if(isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_SESSION["userlevel"])  == '2'){
 include "connect.php";
-include "include/head_menu_grade.php";
+$valid_status = $_SESSION["userlevel"];
+$valid_username = $_SESSION["valid_uname"];
+if ($valid_status == '2') {
+  include "include/head_menu_admin.php";
+}
+if ($valid_status == '3') {
+  include "include/head_menu_grade.php";
+}
 
 $sql = "SELECT *
 				FROM  class 
@@ -35,7 +42,7 @@ $result = mysqli_query($conn, $sql)
         <div class="card text" style="max-width: 1200px;">
           <div class="row no-gutters">
             <div class="col-md-12">
-              <table class="table table-hover" id="mytable" >
+              <table class="table table-hover" id="mytable-class" >
                 <thead>
                 
                   <tr class="bg-secondary text-white">
@@ -49,8 +56,8 @@ $result = mysqli_query($conn, $sql)
                   while ($rs = mysqli_fetch_array($result)) {
                   ?>
                     <tr>
-                    <td align="left"><?php echo "$rs[b_name]"; ?></td>
-                    <td align="left"><?php echo "$rs[class_name]"; ?></td>
+                    <td ><?php echo "$rs[b_name]"; ?></td>
+                    <td ><?php echo "$rs[class_name]"; ?></td>
                       <td><?php echo "<a href=\"showgrade_two.php?class_id=$rs[class_id]\">"; ?>
                       <button type="button" class="btn btn-info">ผลการเรียน</button>
 					  <?php echo "</a>"; ?></td>

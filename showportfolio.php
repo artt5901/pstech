@@ -34,7 +34,7 @@ if(isset($_SESSION["valid_uname"]) && isset($_SESSION["valid_pwd"]) && isset($_S
   <div class="row no-gutters">
     <div class="col-md-12">
     <div class="col"><?php echo "<a href=\"print_portfolio.php?\">"; ?><button class="col-3 btn btn-success btn-sm float-center" >ออกรายงานข้อมูลผลงานนักศึกษา</button><?php echo "</a>"; ?></div>
-<table class="table table-hover"  id="mytable">
+<table class="table table-hover"  id="mytable-portfolio">
   <thead>
     <tr class="bg-secondary text-white" >
       <th scope="col">ลำดับ</th>

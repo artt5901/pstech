@@ -40,11 +40,9 @@ $rs = mysqli_fetch_array($result)
         <div class="row justify-content-center align-items-center">
         </div>
         <div class="card text" style="max-width: 1200px;">
-        <div class="col"><?php echo "<a href=\"print_classroom.php?class_id=$rs[class_id]&y_id=$rs[y_id]\">"; ?><button class="col-3 btn btn-success btn-sm float-center" >ออกรายงานข้อมูลตารางสอน</button><?php echo "</a>"; ?></div>
+        
         <form action="" method="post"> <!-- ที่ใส่ action ว่างเพราะจะส่งค่า คืนกลับหน้าเดิม ขึ้นไปทำงานคำสั่ง php ด้านบน -->
-                <div class="form-group">
-              <div class="col"><button class="col-3 btn btn-secondary btn-sm float-center" input type="button" onclick=window.history.back() >back</button></div>
-          </div>
+               
         </div>
                 <table class="table table-warning" >
                 <thead>
@@ -64,7 +62,7 @@ $rs = mysqli_fetch_array($result)
                     <th scope="col">วัน/เวลา</th>
                     <th scope="col">วิชา</th>
                     <th scope="col">อาจารย์ผู้สอน</th>
-                    <th scope="col">-</th>
+                    <!-- <th scope="col">-</th> -->
                     <th scope="col">-</th>
                   </tr>
                 </thead>
@@ -87,7 +85,7 @@ $rs = mysqli_fetch_array($result)
                     	<td><?php echo "$rs2[day_name]"; ?> - <?php echo "$rs2[time_name]"; ?></td>
                       <td><?php echo "$rs2[c_name]"; ?></td>
                       <td><?php echo "$rs2[t_name]"; ?></td>
-                      <td><?php echo "<a href=\"edit_classroom.php?classroom_id=$rs2[classroom_id]\">"; ?><button type="button" class="btn btn-warning">แก้ไข</button><?php echo "</a>"; ?></td>
+                      <!-- <td><?php echo "<a href=\"edit_classroom.php?classroom_id=$rs2[classroom_id]\">"; ?><button type="button" class="btn btn-warning">แก้ไข</button><?php echo "</a>"; ?></td> -->
                       <td><?php echo "<a href=\"del_classroom.php?classroom_id=$rs2[classroom_id]\">"; ?><button type="button" class="btn btn-danger">ลบ</button><?php echo "</a>"; ?></td>
                     </tr>
                   <?php
@@ -104,6 +102,10 @@ $rs = mysqli_fetch_array($result)
           </form>
         </div>
       </div>
+      <div class="col"><?php echo "<a href=\"print_classroom.php?class_id=$rs[class_id]&y_id=$rs[y_id]\">"; ?><button class="col-3 btn btn-success btn-sm float-center" >ออกรายงานข้อมูลตารางสอน</button><?php echo "</a>"; ?></div>
+       <div class="form-group">
+              <div class="col"><button class="col-3 btn btn-secondary btn-sm float-center" input type="button" onclick=window.history.back() >back</button></div>
+          </div>
       <div class="card-footer text-muted">
         Phasaktara Technological Callege
       </div>

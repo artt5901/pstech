@@ -7,11 +7,11 @@ $valid_status = $_SESSION["userlevel"];
 $valid_username = $_SESSION["valid_uname"];
 
   include "include/head_menu_admin.php";
-?>
-<head>
+?><head>
   <link rel="icon" href="icon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
 </head>
+
 
 <title>ตารางสอน</title>
 <div class="card text-center">
@@ -47,11 +47,7 @@ $valid_username = $_SESSION["valid_uname"];
                 </thead>
                 <tbody>
                   <?php
-				  $sql2 = "SELECT * FROM classroom as classroom
-				  inner join year as year on (classroom.y_id = year.y_id)
-				  inner join class as class on (classroom.class_id = class.class_id)
-				  inner join student as student on (student.class_id = class.class_id)
-				  GROUP BY classroom.y_id HAVING count(classroom.y_id) > 0	ORDER BY y_number DESC ";			
+				  $sql2 = "SELECT * FROM year ORDER BY y_number DESC ";			
 					$result2 = mysqli_query($conn, $sql2)
   					or die("3.ไม่สามารถประมวลผลคำสั่งได้") . mysqli_error();
                   while ($rs2 = mysqli_fetch_array($result2)) {

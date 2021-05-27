@@ -133,6 +133,14 @@
     $(document).ready(function() {
       $('#mytable').DataTable();
     });
+
+    $(document).ready(function() {
+      $('#mytable-news').DataTable({
+        "oLanguage": {
+          "sSearch": "ค้นหาชื่อข่าวสาร:"
+        }
+      });
+    });
   </script>
 
 <script>
